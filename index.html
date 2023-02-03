@@ -145,7 +145,7 @@
             }
         }
         
-        document.querySelector("#dia").textContent = `${adicionaZero(pegaDia.getDate())} / ${verificaMes(pegaDia.getMonth())} / ${pegaDia.getFullYear()}`;
+        document.querySelector("#dia").textContent = `${adicionaZero(pegaDia.getDate())} / ${adicionaZero(pegaDia.getMonth())} / ${pegaDia.getFullYear()}`;
 
         document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${(new Date).getMinutes()} : ${adicionaZero((new Date).getSeconds())}`;
         
