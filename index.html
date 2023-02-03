@@ -100,6 +100,11 @@
             document.querySelector("#dolarDia").textContent = (Number(valor).toFixed(2)).toString().replace(".", ",");
         }
 
+        setInterval(() => {
+            pegaValor();
+            console.log(valor);
+        }, 60000);
+
         const brlInput = document.querySelector("#brl");
         const dolInput = document.querySelector("#dol");
 
@@ -144,13 +149,16 @@
                 return String(sit).padStart(2, '0');
             }
         }
-        
-        document.querySelector("#dia").textContent = `${adicionaZero(pegaDia.getDate())} / ${adicionaZero(pegaDia.getMonth())} / ${pegaDia.getFullYear()}`;
-
-        document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${(new Date).getMinutes()} : ${adicionaZero((new Date).getSeconds())}`;
+        document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
         
         setInterval(() => {
-            document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${(new Date).getMinutes()} : ${adicionaZero((new Date).getSeconds())}`;
+            document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
+        }, 10000);
+
+        document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${adicionaZero((new Date).getMinutes())} : ${adicionaZero((new Date).getSeconds())}`;
+        
+        setInterval(() => {
+            document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${adicionaZero((new Date).getMinutes())} : ${adicionaZero((new Date).getSeconds())}`;
         }, 500);
 
     </script>
