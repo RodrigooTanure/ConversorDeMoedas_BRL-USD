@@ -118,7 +118,7 @@
         });
 
         brlInput.addEventListener('keyup', (e) => {
-            dolInput.value = (brlInput.value * Number(valor)).toFixed(2);
+            dolInput.value = (brlInput.value / Number(valor)).toFixed(2);
             if (brlInput.value == "") {
                 dolInput.value = "";
             }
@@ -135,7 +135,7 @@
         });
 
         dolInput.addEventListener('keyup', (e) => {
-            brlInput.value = (dolInput.value / Number(valor)).toFixed(2);
+            brlInput.value = (dolInput.value * Number(valor)).toFixed(2);
             if (dolInput.value == "") {
                 brlInput.value = "";
             }
