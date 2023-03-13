@@ -29,7 +29,7 @@
 <body>
 
     <div class="container" id="main">
-        <div class="col-12 m-auto col-md-6 bg-dark rounded px-2 py-1"
+        <div class="col-12 m-auto col-md-10 col-lg-6 bg-dark rounded px-2 py-1"
             style="position: relative; top: 70px; box-shadow: 1px 1px 5px 1px #000;">
             <h2 class="text-light text-center">Conversão de Moedas</h2>
             <div class="row gx-1 text-light">
@@ -115,12 +115,20 @@
                 e.preventDefault();
                 return;
             }
+
+            if(brlInput.value == "NaN") {
+                brlInput.value = "Insira um número váldo";
+            }
         });
 
         brlInput.addEventListener('keyup', (e) => {
             dolInput.value = (brlInput.value / Number(valor)).toFixed(2);
             if (brlInput.value == "") {
                 dolInput.value = "";
+            }
+
+            if(brlInput.value == "NaN") {
+                brlInput.value = "Insira um número váldo";
             }
         });
 
@@ -132,12 +140,20 @@
                 e.preventDefault();
                 return;
             }
+
+            if(dolInput.value == "NaN") {
+                dolInput.value = "Insira um número váldo";
+            }
         });
 
         dolInput.addEventListener('keyup', (e) => {
             brlInput.value = (dolInput.value * Number(valor)).toFixed(2);
             if (dolInput.value == "") {
                 brlInput.value = "";
+            }
+
+            if(dolInput.value == "NaN") {
+                dolInput.value = "Insira um número váldo";
             }
         });
 
@@ -146,6 +162,8 @@
         adicionaZero = (sit) => {
             if(sit.length != 1) {
                 return String(sit).padStart(2, '0');
+            } else {
+                return sit;
             }
         }
         document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
@@ -159,6 +177,7 @@
         setInterval(() => {
             document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${adicionaZero((new Date).getMinutes())} : ${adicionaZero((new Date).getSeconds())}`;
         }, 500);
+
 
     </script>
 </body>
