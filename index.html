@@ -87,15 +87,19 @@
         let valor;
 
         pegaValor = async () => {
-            const response = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL');
-            const data = await response.json();
-            valor = await data.USDBRL.ask
-            await escreveValorDia(valor);
+            try {
+                const response = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL');
+                const data = await response.json();
+                valor = await data.USDBRL.ask
+                escreveValorDia(valor);
+            } catch (error) {
+                alert(error);
+            }
         }
 
         pegaValor();
 
-        escreveValorDia = async (valor) => {
+        escreveValorDia = (valor) => {
             document.querySelector("#dolarDia").textContent = (Number(valor).toFixed(2)).toString().replace(".", ",");
         }
 
