@@ -142,7 +142,7 @@
             }
 
             if(brlInput.value == "NaN") {
-                brlInput.value = "Insira um número váldo";
+                brlInput.value = "Insira um número válido";
             }
         });
 
@@ -153,7 +153,7 @@
             }
 
             if(brlInput.value == "NaN") {
-                brlInput.value = "Insira um número váldo";
+                brlInput.value = "Insira um número válido";
             }
         });
 
@@ -166,16 +166,31 @@
                 return sit;
             }
         }
+
+        // Verifica se o dia atual mudou, caso mude altera o dia
+        verificaDia = () => {
+            let nDia = (new Date).getDate();
+            if(nDia != pegaDia.getDate()) {
+                pegaDia = new Date;
+                document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
+                console.log("O dia mudou!");
+            } 
+        }
+
+        // Escreve o dia atual
         document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
         
-        setInterval(() => {
-            document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
-        }, 10000);
+        // setInterval(() => {
+        //     document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
+        // }, 10000);
 
+        // Escreve a hora atual
         document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${adicionaZero((new Date).getMinutes())} : ${adicionaZero((new Date).getSeconds())}`;
         
+        // Atualiza a hora atual e verifica se o dia foi alterado!
         setInterval(() => {
             document.querySelector("#hora").textContent = `${(new Date).getHours()} : ${adicionaZero((new Date).getMinutes())} : ${adicionaZero((new Date).getSeconds())}`;
+            verificaDia();
         }, 500);
 
 
