@@ -176,13 +176,13 @@
             let nDia = (new Date).getDate();
             if(nDia != pegaDia.getDate()) {
                 pegaDia = new Date;
-                document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
+                document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth() + 1)} / ${(new Date).getFullYear()}`;
                 console.log("O dia mudou!");
             } 
         }
 
         // Escreve o dia atual
-        document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
+        document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth() + 1)} / ${(new Date).getFullYear()}`;
         
         // setInterval(() => {
         //     document.querySelector("#dia").textContent = `${adicionaZero((new Date).getDate())} / ${adicionaZero((new Date).getMonth())} / ${(new Date).getFullYear()}`;
